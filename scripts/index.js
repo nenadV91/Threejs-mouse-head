@@ -3,6 +3,7 @@ app.useOrbitControls = false;
 
 window.addEventListener('resize', app.handleResize, false);
 window.addEventListener('mousemove', handleMouseMove, false);
+window.addEventListener('click', handleClick, false);
 window.onload = app.init;
 
 const controls = { 
@@ -13,6 +14,7 @@ const controls = {
 let shape;
 var mouse = new THREE.Vector2();
 var radians = Math.PI / 180;
+let freeze = false;
 
 
 function setup(app) {
@@ -39,6 +41,7 @@ function setup(app) {
 }
 
 function animate(app) {
+  TWEEN.update();
   shape.material.map.needsUpdate = true;
   shape.material.opacity = controls.opacity;
   shape.material.wireframe = controls.wireframe
@@ -81,7 +84,12 @@ function handleMouseMove(event) {
 }
 
 function updateShape() {
-  shape.rotation.y = (-mouse.x * -50 + 90) * radians - Math.PI;
-  shape.rotation.z = (mouse.y * 50) * radians;
+  shape.rotation.y = (-mouse.x * -65 + 90) * radians - Math.PI;
+  shape.rotation.z = (mouse.y * 35) * radians;
+}
 
+
+
+function handleClick() {
+  jump()
 }
