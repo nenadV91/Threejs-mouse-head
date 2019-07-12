@@ -40,8 +40,8 @@ class App {
     this.stats.setMode(0);
 
     this.stats.domElement.style.position = 'absolute';
-    this.stats.domElement.style.left = '0px';
-    this.stats.domElement.style.top = '0px';
+    this.stats.domElement.style.left = '10px';
+    this.stats.domElement.style.top = '10px';
 
     document.body.appendChild( this.stats.domElement );
   }
@@ -51,7 +51,11 @@ class App {
     this.initCamera();
     this.initRenderer();
     this.initStats();
-    this.initOrbitControls();
+    
+    if(this.useOrbitControls) {
+      this.initOrbitControls();
+    }
+
     this.setup(this);
 
     document.body.appendChild(this.renderer.domElement);
@@ -61,7 +65,10 @@ class App {
   render = () => {
     this.animate(this);
     this.stats.update();
-    this.orbitControls.update();
+    
+    if(this.orbitControls) {
+      this.orbitControls.update();
+    }
     
     requestAnimationFrame(this.render);
     this.renderer.render(this.scene, this.camera);
