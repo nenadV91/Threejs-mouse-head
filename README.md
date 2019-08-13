@@ -5,7 +5,7 @@ Mouse head following mouse in three.js
 
 ### Preview
 ---
-![Preview](https://raw.githubusercontent.com/nenadV91/Threejs-globe/master/previews/preview.png?raw=true "Home preview 1")
+![Preview](https://raw.githubusercontent.com/nenadV91/Threejs-mouse-head/master/previews/preview.png?raw=true "Home preview 1")
 
 ## Author
 Nenad Vracar
